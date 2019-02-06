@@ -7,7 +7,7 @@ import org.json.JSONObject;
 
 public class DemoClass {
 	public String func(int a, int b) {
-		return "heh" + String.valueOf(a + b);
+		return "server's " + String.valueOf(a + b);
 	}
 	
 	public String getServerTime() {
