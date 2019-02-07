@@ -16,7 +16,12 @@ public class DemoClass {
         Date date = cal.getTime();
         
         long timeInMillis = date.getTime(); 
+        System.out.println("Server is invoked");
+        System.out.println("Server's system time is: " + date);
+        
         jsonObject.put("timeInMillis", String.valueOf(timeInMillis));
+        
+        System.out.println("Server will return to client: " + jsonObject.toString());
         return jsonObject.toString();
 	}
 }

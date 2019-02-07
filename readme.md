@@ -19,6 +19,8 @@ This documentation will introduce how server and client programs work, how you d
 * Maven to organize libraries
 * `org.json` used to serialize and deserialize the mapping between JSON string and object
 
+
+
 # Server
 
 Server is created as a dynamic web project so that eclipse can do some automatic configurations to save life. Server runs on Apache 8. Server's responsiblity is pretty simple. It generates server's system time and returns the result as a JSON string. 
@@ -65,6 +67,8 @@ http://localhost:8080/SOAPExample/sampleSoapClassProxy/TestClient.jsp?endpoint=h
 ```
 Obviously, we noticed in this URL, service will be reached in the end point of "http://localhost:9163/SOAPExample/services/SoapClass". In another word, this is the **end point** that client will call. 
 
+
+
 # Client
 
 Client side runs on Apache 8 and Apache Axis. 
@@ -102,7 +106,7 @@ long endTimeInMillis = System.currentTimeMillis();
 
 By printing the response, we can clearly see the data is passed by JSON. 
 ```java
-System.out.println(response); // {"timeInMillis": "1549262778612"}
+System.out.println(response); // {"timeInMillis": "1549515387238"}
 ```
 
 After calculated, client's system should be changed by using the following formular.
@@ -122,7 +126,10 @@ String command = "date " + strDateToSet; // Mac's command to change time
 Process proc = Runtime.getRuntime().exec(command); // a process will be launched to change system time in a command of `bash/shell`
 ```
 
+
+
 # Screenshot
+
 Screenshots of server and client will be introduced.
 
 ## Sever
@@ -140,10 +147,29 @@ When server is invoked, Eclipse's **TCP/IP Monitor** is able to show the SOAP of
 ### Response
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><getServerTimeResponse xmlns="http://com"><getServerTimeReturn>{&quot;timeInMillis&quot;:&quot;1549428854618&quot;}</getServerTimeReturn></getServerTimeResponse></soapenv:Body></soapenv:Envelope>
+<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><getServerTimeResponse xmlns="http://com"><getServerTimeReturn>{&quot;timeInMillis&quot;:&quot;1549515387238&quot;}</getServerTimeReturn></getServerTimeResponse></soapenv:Body></soapenv:Envelope>
 ```
 
-In this picture, 
+### Terminal output
+
+This is the output in the terminal of server.
+
+![Screen Shot 2019-02-06 at 9.20.43 PM](https://ws2.sinaimg.cn/large/006tNc79ly1fzxsi51kb5j30ls03mac1.jpg)
+
+### Overall
+
+![Screen Shot 2019-02-06 at 8.56.30 PM](https://ws4.sinaimg.cn/large/006tNc79ly1fzxsvbvstpj31c00u07t5.jpg)
+
+
 
 ## Client
-Client sends request to server firstly, followed by the changed client's system time.  
+
+Client sends request to server firstly, followed by the calculated client's system time.  
+
+### Terminal output
+
+![Screen Shot 2019-02-06 at 9.26.07 PM](https://ws1.sinaimg.cn/large/006tNc79ly1fzxso09wo8j30le02mq4u.jpg)
+
+### Overall
+
+![Screen Shot 2019-02-06 at 8.56.31 PM](https://ws4.sinaimg.cn/large/006tNc79ly1fzxsrimswuj31c00u0nij.jpg)
