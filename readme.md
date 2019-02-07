@@ -65,7 +65,7 @@ Accessing to an specific URL in the browser to test and see if server works well
 ```latex
 http://localhost:8080/SOAPExample/sampleSoapClassProxy/TestClient.jsp?endpoint=http://localhost:9163/SOAPExample/services/SoapClass
 ```
-Obviously, we noticed in this URL, service will be reached in the end point of "http://localhost:9163/SOAPExample/services/SoapClass". In another word, this is the **end point** that client will call. 
+Obviously, we noticed in this URL, service will be reached in the end point of `http://localhost:9163/SOAPExample/services/SoapClass`. In another word, this is the **end point** that client will call. 
 
 
 
