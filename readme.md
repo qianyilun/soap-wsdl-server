@@ -2,7 +2,7 @@
 
 SOAP stands for Simple Object Access Protocol. It is a XML based protocol for accessing web service. By using SOAP, we can interact with other programming language applications. In another word, SOAP web services can be written in any programming language and executed in any platform. 
 
-##Structure 
+## Structure 
 
 You can find how SOAP works in Java in the [Oracle Docs](https://docs.oracle.com/javaee/5/tutorial/doc/figures/jaxws-simpleClientAndService.gif). This project is implemented both server and client sides using SOAP. Our server and client communicates like the following image. 
 
@@ -10,7 +10,7 @@ You can find how SOAP works in Java in the [Oracle Docs](https://docs.oracle.com
 
 This documentation will introduce how server and client programs work, how you designed with code and detailed explaination. Lastly, client changes its system time by adding half of *RTT* (Round-trip time) and server's system time. Screenshots are attached as a proof of success. 
 
-##Software, libraries and IDEs
+## Software, libraries and IDEs
 
 * Eclipse Java EE IDE for Web Developers version: Oxygen.2 Release (4.7.2) as IDE
 * Apache Tomcat v8.0 as the target runtime with default configuration
