@@ -8,7 +8,7 @@ You can find how SOAP works in Java in the [Oracle Docs](https://docs.oracle.com
 
 ![image-20190205212819950](https://ws4.sinaimg.cn/large/006tNc79ly1fzwn2cfvm7j30c50560te.jpg)
 
-This documentation will introduce how server and client programs work, how you designed with code and detailed explaination. Lastly, client changes its system time by adding half of *RTT* (Round-trip time) and server's system time. Screenshots are attached as a proof of success. 
+This documentation will introduce how server and client programs work, how we designed with code and detailed explaination. Lastly, client changes its system time by adding half of *RTT* (Round-trip time) and server's system time. Screenshots are attached as a proof of success. 
 
 ##Software, libraries and IDEs
 
@@ -40,11 +40,11 @@ Server converts date to milliseconds in a format of `long`. It is convenient for
 
 
 
-Server uses the Web Service Definition Language WSDL (created by Eclipse) to describe the functionality offered by itself. It contains the information that how the service can be called, and what parameters, datastructures it expectes and returns. 
+Server uses the Web Service Definition Language WSDL (created by Eclipse) to describe the functionality offered by itself. It contains the information that how the service can be called, and what parameters, data structures it expectes and returns. 
 
 
 
-Let's take a look at one important section.
+Let's take a look at one important section in `wsdl` file.
 
 ```      xml
 <wsdl:service name="SOAPClassService">
@@ -79,14 +79,14 @@ Since server uses WSDL to contain its information, then some parts of client sid
 
 ### Find server
 
-As mentioned before, `http://localhost:9163/SOAPExample/services/SoapClass` is the end point (default URL in server testing environment) that client will use. Therefore, we need to replace `localhost:9163` to server's actual `IP address` and `port number`. For example, `192.168.0.13:8080` is the one that server uses. Therefore, client will connect to server using end point `http://192.168.0.13:8080/SOAPExample/services/SoapClass`. Then in client, the Java class will be created by the following code. 
+As mentioned before, `http://localhost:9163/SOAPExample/services/SoapClass` is the end point (a default URL in server testing environment) that client will use. Therefore, we need to replace `localhost:9163` to server's actual `IP address` and `port number`. For example, `192.168.0.13:8080` is the one that server uses in my machine. Therefore, client will connect to server using end point `http://192.168.0.13:8080/SOAPExample/services/SoapClass`. Then in client, the Java class will be setted by the following code. 
 ```java
 _endpoint = "http://192.168.0.13:8080/SOAPExample/services/SoapClass";
 ((javax.xml.rpc.Stub)soapClass)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
 ```
 ### Calculate RTT
 
-Because we need to calculate the RTT, client will calculate how long the request takes from sending to receive a response. It will capture current client's system time. Milliseconds is used for calculating convenience.
+Because we need to calculate the RTT, client will calculate how long the request takes from sending to receiving a response. It will capture current client's system time. Milliseconds is used for calculating convenience.
 
 ```java
 long startTimeInMillis = System.currentTimeMillis();			
@@ -113,7 +113,7 @@ After calculated, client's system should be changed by using the following formu
 ```java
 long calculatedClientTime = (endTimeInMillis - startTimeInMillis) / 2 + serverTimeInMillis;
 ```
-`1549262779224` is the result that added half of RTT and server's system time in the form of millseconds. Client will parse it and print it to human-readable format `Sun Feb 03 22:46:19 PST 2019`. Screenshot will attached below. 
+`1549262779224` is the result that added half of RTT and server's system time in the form of millseconds. Client will parse it and print it to human-readable format `Wed Feb 06 20:56:27 PST 2019`. Screenshot will attached below. 
 
 ### Set client's system time
 Lastly, client system time will be changed.
@@ -133,7 +133,7 @@ Process proc = Runtime.getRuntime().exec(command); // a process will be launched
 Screenshots of server and client will be introduced.
 
 ## Sever
-When server is invoked, Eclipse's **TCP/IP Monitor** is able to show the SOAP of request and response for invoking `getServerTime()`. Obviously, they are in the format of XML because SOAP is XML-based. 
+When server is invoked, Eclipse's **TCP/IP Monitor** is able to show the SOAP of request and response after invoking `getServerTime()`. Obviously, they are in the format of XML because SOAP is XML-based. 
 
 ![Screen Shot 2019-02-05 at 10.33.43 PM](https://ws3.sinaimg.cn/large/006tNc79ly1fzwoyqec00j31is0dqk0k.jpg)
 
@@ -156,7 +156,7 @@ This is the output in the terminal of server.
 
 ![Screen Shot 2019-02-06 at 9.20.43 PM](https://ws2.sinaimg.cn/large/006tNc79ly1fzxsi51kb5j30ls03mac1.jpg)
 
-### Overall
+### Server's big picture
 
 ![Screen Shot 2019-02-06 at 8.56.30 PM](https://ws4.sinaimg.cn/large/006tNc79ly1fzxsvbvstpj31c00u07t5.jpg)
 
@@ -170,6 +170,6 @@ Client sends request to server firstly, followed by the calculated client's syst
 
 ![Screen Shot 2019-02-06 at 9.26.07 PM](https://ws1.sinaimg.cn/large/006tNc79ly1fzxso09wo8j30le02mq4u.jpg)
 
-### Overall
+### Client's big picture
 
 ![Screen Shot 2019-02-06 at 8.56.31 PM](https://ws4.sinaimg.cn/large/006tNc79ly1fzxsrimswuj31c00u0nij.jpg)
