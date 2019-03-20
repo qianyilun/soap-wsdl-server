@@ -1,10 +1,10 @@
 # Introduction
 
-SOAP stands for Simple Object Access Protocol. It is a XML based protocol for accessing web service. By using SOAP, we can interact with other programming language applications. In another word, SOAP web services can be written in any programming language and executed in any platform. 
+SOAP stands for Simple Object Access Protocol. It is an XML based protocol for accessing web service. SOAP interacts with other programming language applications. In another word, SOAP web services are cross-platform. 
 
 ## Structure 
 
-You can find how SOAP works in Java in the [Oracle Docs](https://docs.oracle.com/javaee/5/tutorial/doc/figures/jaxws-simpleClientAndService.gif). This project is implemented both server and client sides using SOAP. Our server and client communicates like the following image. 
+The documentation explained how a SOAP works in Java can be found [Oracle Docs](https://docs.oracle.com/javaee/5/tutorial/doc/figures/jaxws-simpleClientAndService.gif). This project is implemented both server and client sides using SOAP. Our server and client communicates like the following image. 
 
 ![image-20190205212819950](https://ws4.sinaimg.cn/large/006tNc79ly1fzwn2cfvm7j30c50560te.jpg)
 
@@ -40,7 +40,7 @@ Server converts date to milliseconds in a format of `long`. It is convenient for
 
 
 
-Server uses the Web Service Definition Language WSDL (created by Eclipse) to describe the functionality offered by itself. It contains the information that how the service can be called, and what parameters, data structures it expectes and returns. 
+Server uses the Web Service Definition Language (a.k.a WSDL) to describe functionalities. WSDL contains the information to explain how the service can be called, and what parameters, data structures it expectes and returns. 
 
 
 
